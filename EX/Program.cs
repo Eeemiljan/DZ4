@@ -63,6 +63,35 @@ class Program
         return number * FactorialRec(number - 1);
     }
 
+    // Домашнее задание 5.1
+    static int Gcd(int a, int b)
+    {
+        while (b != 0)
+        {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+
+        return a;
+    }
+
+    static int Gcd(int a, int b, int c)
+    {
+        return Gcd(Gcd(a, b), c);
+    }
+
+    // Домашнее задание 5.2
+    static int Fibonacci(int number)
+    {
+        if (number == 1 || number == 2)
+        {
+            return 1;
+        }
+
+        return Fibonacci(number - 1) + Fibonacci(number - 2);
+    }
+
     static void Main()
     {
         Console.WriteLine("Упражнение 5.1. Максимум двух чисел.");
@@ -86,7 +115,7 @@ class Program
 
         Console.WriteLine();
 
-        Console.WriteLine("Упражнение 5.3. Факториал и проверка переполнения.");
+        Console.WriteLine("Упражнение 5.3. Факториал.");
 
         int result;
         bool success = Factorial(5, out result);
@@ -116,5 +145,18 @@ class Program
         Console.WriteLine("Упражнение 5.4. Рекурсивный факториал.");
 
         Console.WriteLine($"5! = {FactorialRec(5)}");
+
+        Console.WriteLine();
+
+        Console.WriteLine("Домашнее задание 5.1. НОД чисел.");
+
+        Console.WriteLine($"НОД(48, 18) = {Gcd(48, 18)}");
+        Console.WriteLine($"НОД(48, 18, 30) = {Gcd(48, 18, 30)}");
+
+        Console.WriteLine();
+
+        Console.WriteLine("Домашнее задание 5.2. Числа Фибоначчи.");
+
+        Console.WriteLine($"Седьмое число Фибоначчи: {Fibonacci(7)}");
     }
 }
