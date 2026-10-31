@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="EX/EX.csproj" />
+  <Project Path="PRJ/PRJ.csproj" />
+</Solution>
